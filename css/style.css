@@ -1,0 +1,264 @@
+/*  Base  */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #4c5a6b;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer {
+    background-color: #4c5a6b;
+    color: white;
+    padding: 1%;
+}
+
+h2,
+h3 {
+    color: #492d0e;
+    margin-bottom: 15px;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.textcenter {
+    text-align: center;
+}
+
+/*  Secciones */
+.ejercicio {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #dce6ec;
+    border-radius: 15px;
+    color: black;
+}
+
+/*  Código PSeInt */
+pre {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+pre code {
+    font-family: Consolas, "Courier New", monospace;
+}
+
+pre.resultado {
+    background-color: #fff;
+    color: #222;
+    border: 1px solid #ddd;
+    width: fit-content;
+    margin: 0 auto 15px;
+}
+
+p code {
+    background-color: #fff;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-family: Consolas, "Courier New", monospace;
+}
+
+/* Enlace de descarga */
+.descarga {
+    display: inline-block;
+    background-color: #584c8f;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.descarga:hover,
+.descarga:focus {
+    background-color: #43386f;
+}
+
+/*  Tablas  */
+.tabla-decision {
+    border-collapse: collapse;
+    margin: 20px auto;
+    text-align: center;
+    width: 70%;
+}
+
+.tabla-decision caption {
+    font-size: 14px;
+    color: #492d0e;
+    margin-bottom: 8px;
+}
+
+.tabla-decision th,
+.tabla-decision td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.tabla-decision th {
+    background-color: #ac9971;
+    color: white;
+}
+
+.tabla-decision td {
+    background-color: #f1daf1;
+}
+
+/* Línea impresa de la pirámide (respeta los espacios) */
+.salida {
+    white-space: pre;
+    font-family: Consolas, "Courier New", monospace;
+}
+
+/*  Árbol de componentes */
+.arbol {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.tarjeta {
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.subtitulo {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Tarjeta principal (azul) */
+.principal {
+    background-color: #e7f0fe;
+    border: 1px solid #b8d0fc;
+}
+
+/* Cuadrícula para los hijos (2 columnas) */
+.caja-hijos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+/* Tarjetas verdes */
+.verde {
+    background-color: #edf7ed;
+    border: 1px solid #c8e6c9;
+}
+
+/* Tarjetas naranjas */
+.naranja {
+    background-color: #fef8f0;
+    border: 1px solid #ffe0b2;
+}
+
+/* Tarjeta final (resumen de lo que se repite) */
+.final {
+    background-color: transparent;
+    border: 2px solid #c8e6c9;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+/* Listas de componentes dentro de las tarjetas */
+.componentes,
+.componentes ul {
+    text-align: left;
+    font-size: 12px;
+    color: #444;
+    line-height: 1.6;
+    margin: 6px 0 0;
+    padding-left: 18px;
+}
+
+.componentes ul {
+    margin-top: 2px;
+}
+
+/* Parte que se repite */
+.repetido {
+    font-weight: bold;
+    color: #492d0e;
+}
+
+.repetido ul li {
+    font-weight: normal;
+    color: #444;
+}
+
+.repetido ul li.repetido {
+    font-weight: bold;
+    color: #492d0e;
+}
+
+.insignia {
+    display: inline-block;
+    background-color: #ffe0b2;
+    color: #492d0e;
+    font-size: 11px;
+    font-weight: normal;
+    padding: 0 6px;
+    border-radius: 10px;
+    margin-left: 4px;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 600px) {
+    .ejercicio {
+        margin: 15px 10px;
+        padding: 15px;
+    }
+
+    .caja-hijos {
+        grid-template-columns: 1fr;
+    }
+
+    .arbol {
+        width: auto;
+        padding: 12px;
+    }
+
+    .tabla-decision {
+        width: 100%;
+        font-size: 14px;
+        display: block;
+        overflow-x: auto;
+    }
+
+    .tabla-decision th,
+    .tabla-decision td {
+        padding: 6px;
+    }
+}

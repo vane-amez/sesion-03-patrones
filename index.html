@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrones de repetición y descomposición de problemas</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Actividad patrones de repetición y descomposición de problemas.</h1>
+        <p class="textcenter">Desarrollar ejercicios prácticos en PSeInt aplicando estructuras repetitivas,
+            acumuladores, contadores, validaciones, ciclos anidados y descomposición de problemas mediante subprocesos.
+        </p>
+    </header>
+
+    <main>
+        <!--Section 1-->
+        <section class="ejercicio">
+            <h2>Cajero.</h2>
+            <p>Pide montos a retirar hasta que el usuario ingrese 0 (centinela) y muestra el total retirado y la
+                cantidad de retiros. Pista: acumulador + contador.</p>
+
+            <h3>Código PSeInt:</h3>
+            <pre><code>Algoritmo cajero
+    Definir monto, total, contador Como Entero
+    total &lt;- 0
+    contador &lt;- 0
+
+    Escribir "Ingrese el monto a retirar (0 para terminar):"
+    Leer monto
+
+    Mientras monto &lt;&gt; 0 Hacer
+        total &lt;- total + monto
+        contador &lt;- contador + 1
+
+        Escribir "Ingrese otro monto (0 para terminar):"
+        Leer monto
+    FinMientras
+
+    Escribir "Total retirado: ", total
+    Escribir "Cantidad de retiros: ", contador
+FinAlgoritmo</code></pre>
+
+            <p><a class="descarga" href="./psc/cajero.psc" download>Descargar cajero.psc</a></p>
+
+            <h3>Tabla de traza:</h3>
+            <table class="tabla-decision">
+                <caption>Traza con los montos 100, 50, 200 y 0</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Iteración</th>
+                        <th scope="col">Monto</th>
+                        <th scope="col">Total acumulado</th>
+                        <th scope="col">Contador</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>50</td>
+                        <td>150</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>200</td>
+                        <td>350</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>0</td>
+                        <td>350</td>
+                        <td>3</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Resultado:</strong> <em>Total retirado:</em> 350. <em>Cantidad de retiros:</em> 3.</p>
+        </section>
+
+        <!--Section 2-->
+        <section class="ejercicio">
+            <h2>Calificaciones.</h2>
+            <p>Dada una lista de notas, calcula el promedio, la nota más alta, la más baja y cuántos estudiantes
+                reprobaron. Pista: cuatro patrones en un solo recorrido.</p>
+
+            <h3>Código PSeInt:</h3>
+            <pre><code>Algoritmo calificaciones
+    Definir n, i, reprobados Como Entero
+    Definir nota, suma, promedio, mayor, menor Como Real
+    suma &lt;- 0
+    reprobados &lt;- 0
+
+    Escribir "Cantidad de estudiantes:"
+    Leer n
+
+    Si n &gt; 0 Entonces
+        Para i &lt;- 1 Hasta n Hacer
+            Escribir "Ingrese la nota del estudiante:"
+            Leer nota
+            suma &lt;- suma + nota
+
+            Si i = 1 Entonces
+                mayor &lt;- nota
+                menor &lt;- nota
+            SiNo
+                Si nota &gt; mayor Entonces
+                    mayor &lt;- nota
+                FinSi
+
+                Si nota &lt; menor Entonces
+                    menor &lt;- nota
+                FinSi
+            FinSi
+
+            Si nota &lt; 3.0 Entonces
+                reprobados &lt;- reprobados + 1
+            FinSi
+        FinPara
+
+        promedio &lt;- suma / n
+        Escribir "Promedio: ", promedio
+        Escribir "Nota mayor: ", mayor
+        Escribir "Nota menor: ", menor
+        Escribir "Estudiantes reprobados: ", reprobados
+    SiNo
+        Escribir "Error: la cantidad de estudiantes debe ser mayor que 0."
+    FinSi
+FinAlgoritmo</code></pre>
+
+            <p><a class="descarga" href="./psc/calificaciones.psc" download>Descargar calificaciones.psc</a></p>
+
+            <h3>Tabla de traza:</h3>
+            <table class="tabla-decision">
+                <caption>Traza con n = 4 y las notas 4.0, 2.5, 3.5 y 2.0</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Estudiante</th>
+                        <th scope="col">Nota</th>
+                        <th scope="col">Suma</th>
+                        <th scope="col">Mayor</th>
+                        <th scope="col">Menor</th>
+                        <th scope="col">Reprobados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>4.0</td>
+                        <td>4.0</td>
+                        <td>4.0</td>
+                        <td>4.0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>2.5</td>
+                        <td>6.5</td>
+                        <td>4.0</td>
+                        <td>2.5</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>3.5</td>
+                        <td>10.0</td>
+                        <td>4.0</td>
+                        <td>2.5</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>2.0</td>
+                        <td>12.0</td>
+                        <td>4.0</td>
+                        <td>2.0</td>
+                        <td>2</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Resultado:</strong> <em>Promedio:</em> 3.0. <em>Nota mayor:</em> 4.0. <em>Nota menor:</em> 2.0.
+                <em>Reprobados:</em> 2.
+            </p>
+            <p><strong>Caso n = 0:</strong> la condición <code>n &gt; 0</code> es falsa, no se recorre ninguna nota y
+                se muestra "Error: la cantidad de estudiantes debe ser mayor que 0." (así se evita dividir entre cero).
+            </p>
+        </section>
+
+        <!--Section 3-->
+        <section class="ejercicio">
+            <h2>Validación de usuario.</h2>
+            <p>El usuario tiene 3 intentos para ingresar un correo que contenga "@" y ".". Pista: intentos
+                limitados + bandera.</p>
+
+            <h3>Código PSeInt:</h3>
+            <pre><code>Algoritmo validarcorreo
+    Definir correo Como Cadena
+    Definir intentos, i Como Entero
+    Definir tieneArroba, tienePunto, valido Como Logico
+    intentos &lt;- 0
+    valido &lt;- Falso
+
+    Repetir
+        tieneArroba &lt;- Falso
+        tienePunto &lt;- Falso
+        Escribir "Ingrese su correo:"
+        Leer correo
+        intentos &lt;- intentos + 1
+
+        Para i &lt;- 0 Hasta Longitud(correo) - 1 Hacer
+            Si SubCadena(correo, i, i) = "@" Entonces
+                tieneArroba &lt;- Verdadero
+            FinSi
+            Si SubCadena(correo, i, i) = "." Entonces
+                tienePunto &lt;- Verdadero
+            FinSi
+        FinPara
+
+        Si tieneArroba Y tienePunto Entonces
+            valido &lt;- Verdadero
+        FinSi
+    Hasta Que valido O intentos = 3
+
+    Si valido Entonces
+        Escribir "Correo valido."
+    SiNo
+        Escribir "Se agotaron los intentos."
+    FinSi
+FinAlgoritmo</code></pre>
+
+            <p><a class="descarga" href="./psc/validarcorreo.psc" download>Descargar validarcorreo.psc</a></p>
+
+            <h3>Tabla de traza:</h3>
+            <table class="tabla-decision">
+                <caption>Traza con tres intentos</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Intento</th>
+                        <th scope="col">Correo ingresado</th>
+                        <th scope="col">¿Contiene @ y .?</th>
+                        <th scope="col">Bandera (valido)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>usuario123</td>
+                        <td>No</td>
+                        <td>Falso</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>usuario@gmail</td>
+                        <td>No</td>
+                        <td>Falso</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>usuario@gmail.com</td>
+                        <td>Sí</td>
+                        <td>Verdadero</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Resultado: </strong>Correo validado en el tercer intento.</p>
+        </section>
+
+        <!--Section 4-->
+        <section class="ejercicio">
+            <h2>Pirámide.</h2>
+            <p>Imprime una pirámide de asteriscos de n niveles. Pista: ciclos anidados; haz la traza para n
+                = 3.</p>
+
+            <h3>Código PSeInt:</h3>
+            <pre><code>Algoritmo piramide
+    Definir n, i, j, k Como Entero
+    Escribir "Ingrese el numero de niveles:"
+    Leer n
+
+    Para i &lt;- 1 Hasta n Hacer
+        Para k &lt;- 1 Hasta n - i Hacer
+            Escribir Sin Saltar " "
+        FinPara
+        Para j &lt;- 1 Hasta 2 * i - 1 Hacer
+            Escribir Sin Saltar "*"
+        FinPara
+        Escribir ""
+    FinPara
+FinAlgoritmo</code></pre>
+
+            <p><a class="descarga" href="./psc/piramide.psc" download>Descargar piramide.psc</a></p>
+
+            <h3>Tabla de traza:</h3>
+            <table class="tabla-decision">
+                <caption>Traza con n = 3</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Nivel (i)</th>
+                        <th scope="col">Espacios (k)</th>
+                        <th scope="col">Asteriscos (j)</th>
+                        <th scope="col">Línea impresa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>1, 2</td>
+                        <td>1</td>
+                        <td><span class="salida"> *</span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>1, 2, 3</td>
+                        <td><span class="salida"> ***</span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>(ninguno)</td>
+                        <td>1, 2, 3, 4, 5</td>
+                        <td><span class="salida">*****</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Resultado:</strong> salida en pantalla para n = 3:</p>
+            <pre class="resultado"><code>  *
+ ***
+*****</code></pre>
+        </section>
+
+        <!--Section 5-->
+        <section class="ejercicio">
+            <h2>Factura de restaurante.</h2>
+            <p>Descompón en funciones el cálculo de una cuenta con propina opcional, división entre
+                comensales y redondeo. Pista: define primero la tabla de firmas.</p>
+
+            <h3>Tabla de subprocesos (firmas):</h3>
+            <table class="tabla-decision">
+                <caption>Firma de cada subproceso</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Subproceso</th>
+                        <th scope="col">Parámetros de entrada</th>
+                        <th scope="col">Retorno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CalcularSubtotal</td>
+                        <td>cantidad (Entero), precio (Real)</td>
+                        <td>Subtotal (Real)</td>
+                    </tr>
+                    <tr>
+                        <td>CalcularPropina</td>
+                        <td>subtotal (Real), aplica (Cadena)</td>
+                        <td>Valor propina (Real)</td>
+                    </tr>
+                    <tr>
+                        <td>DividirCuenta</td>
+                        <td>total (Real), comensales (Entero)</td>
+                        <td>Valor por persona (Real)</td>
+                    </tr>
+                    <tr>
+                        <td>RedondearValor</td>
+                        <td>valor (Real)</td>
+                        <td>Valor redondeado (Real)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Código PSeInt:</h3>
+            <pre><code>Funcion subtotal &lt;- CalcularSubtotal(cantidad, precio)
+    Definir subtotal Como Real
+    subtotal &lt;- cantidad * precio
+FinFuncion
+
+Funcion propina &lt;- CalcularPropina(subtotal, aplica)
+    Definir propina Como Real
+
+    Si aplica = "S" O aplica = "s" Entonces
+        propina &lt;- subtotal * 0.10
+    SiNo
+        propina &lt;- 0
+    FinSi
+FinFuncion
+
+Funcion valor &lt;- DividirCuenta(total, comensales)
+    Definir valor Como Real
+    valor &lt;- total / comensales
+FinFuncion
+
+Funcion resultado &lt;- RedondearValor(valor)
+    Definir resultado Como Real
+    resultado &lt;- Redon(valor)
+FinFuncion
+
+Algoritmo factura_restaurante
+    Definir cantidad, comensales Como Entero
+    Definir precio, subtotal, propina, total Como Real
+    Definir valorPersona, valorFinal Como Real
+    Definir aplica Como Cadena
+
+    Escribir "Cantidad de platos:"
+    Leer cantidad
+
+    Escribir "Precio por plato:"
+    Leer precio
+
+    Escribir "Desea incluir propina? S/N"
+    Leer aplica
+
+    Escribir "Cantidad de comensales:"
+    Leer comensales
+
+    Si cantidad &gt; 0 Y precio &gt;= 0 Y comensales &gt; 0 Entonces
+        subtotal &lt;- CalcularSubtotal(cantidad, precio)
+        propina &lt;- CalcularPropina(subtotal, aplica)
+        total &lt;- subtotal + propina
+        valorPersona &lt;- DividirCuenta(total, comensales)
+        valorFinal &lt;- RedondearValor(valorPersona)
+
+        Escribir "Subtotal: $", subtotal
+        Escribir "Propina: $", propina
+        Escribir "Total factura: $", total
+        Escribir "Valor por persona: $", valorFinal
+    SiNo
+        Escribir "Error: Verifique los datos ingresados."
+    FinSi
+FinAlgoritmo</code></pre>
+
+            <p><a class="descarga" href="./psc/factura_restaurante.psc" download>Descargar factura_restaurante.psc</a>
+            </p>
+
+            <h3>Ejemplo de ejecución:</h3>
+            <table class="tabla-decision">
+                <caption>2 platos de $18.500, con propina (S) y 3 comensales</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Subproceso</th>
+                        <th scope="col">Entrada</th>
+                        <th scope="col">Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CalcularSubtotal</td>
+                        <td>2, 18500</td>
+                        <td>37000</td>
+                    </tr>
+                    <tr>
+                        <td>CalcularPropina</td>
+                        <td>37000, "S"</td>
+                        <td>3700</td>
+                    </tr>
+                    <tr>
+                        <td>DividirCuenta</td>
+                        <td>40700 (subtotal + propina), 3</td>
+                        <td>13566.67</td>
+                    </tr>
+                    <tr>
+                        <td>RedondearValor</td>
+                        <td>13566.67</td>
+                        <td>13567</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Árbol de componentes:</h3>
+            <div class="arbol">
+                <div class="tarjeta principal">
+                    <div class="titulo">FacturaRestaurante</div>
+                    <div class="subtitulo">Algoritmo principal</div>
+                </div>
+
+                <div class="caja-hijos">
+                    <div class="tarjeta verde">
+                        <div class="titulo">CalcularSubtotal</div>
+                        <div class="subtitulo">Calcula cantidad × precio</div>
+                    </div>
+
+                    <div class="tarjeta verde">
+                        <div class="titulo">CalcularPropina</div>
+                        <div class="subtitulo">Evalúa si aplica el 10 %</div>
+                    </div>
+
+                    <div class="tarjeta naranja">
+                        <div class="titulo">DividirCuenta</div>
+                        <div class="subtitulo">Divide entre comensales</div>
+                    </div>
+
+                    <div class="tarjeta naranja">
+                        <div class="titulo">RedondearValor</div>
+                        <div class="subtitulo">Redondea el resultado</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Section 6-->
+        <section class="ejercicio">
+            <h2>Página de perfil.</h2>
+            <p>Toma una página de perfil de una red social y dibuja su árbol de componentes, marcando
+                qué partes se repiten. En este caso se tomó como referencia el perfil de Instagram.
+            </p>
+
+            <h3>Árbol de componentes:</h3>
+            <div class="arbol">
+                <div class="tarjeta principal">
+                    <div class="titulo">Página de perfil</div>
+                    <div class="subtitulo">Perfil de Instagram</div>
+                </div>
+
+                <div class="caja-hijos">
+                    <div class="tarjeta verde">
+                        <div class="titulo">Encabezado</div>
+                        <ul class="componentes">
+                            <li>Logo</li>
+                            <li>Menú de navegación</li>
+                        </ul>
+                    </div>
+
+                    <div class="tarjeta verde">
+                        <div class="titulo">Datos del perfil</div>
+                        <ul class="componentes">
+                            <li>Foto de perfil</li>
+                            <li>Nombre de usuario</li>
+                            <li>Biografía</li>
+                            <li>Contadores (publicaciones, seguidores, seguidos)</li>
+                        </ul>
+                    </div>
+
+                    <div class="tarjeta naranja">
+                        <div class="titulo">Publicaciones</div>
+                        <ul class="componentes">
+                            <li class="repetido">Publicación <span class="insignia">se repite</span>
+                                <ul>
+                                    <li>Foto</li>
+                                    <li>Texto</li>
+                                    <li>Fecha</li>
+                                    <li class="repetido">Comentario <span class="insignia">se repite</span>
+                                        <ul>
+                                            <li>Usuario</li>
+                                            <li>Texto</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tarjeta naranja">
+                        <div class="titulo">Seguidores</div>
+                        <ul class="componentes">
+                            <li class="repetido">Seguidor <span class="insignia">se repite</span>
+                                <ul>
+                                    <li>Foto</li>
+                                    <li>Nombre</li>
+                                    <li>Botón seguir</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tarjeta final">
+                    <div class="titulo">Componentes repetitivos</div>
+                    <div class="subtitulo">Publicación, Comentario y Seguidor: se definen una vez y se dibujan tantas
+                        veces como datos existan.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="textcenter">Algorimia | Patrones de repetición y descomposición de problemas</p>
+    </footer>
+</body>
+
+</html>
