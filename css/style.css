@@ -1,264 +1,276 @@
-/*  Base  */
+* {
+    box-sizing: border-box;          /* Incluye el padding y los bordes dentro del tamaño total de los elementos */
+}
+
+/*  BASE: configuración general de la página */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+    margin: 0;                         /* Elimina los espacios exteriores predeterminados del navegador */
+    font-family: Arial, sans-serif;    /* Establece el tipo de letra para toda la página */
 }
 
 header {
-    background-color: #4c5a6b;
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: #4c5a6b;        /* Color de fondo del encabezado */
+    color: white;                      /* Color blanco para el texto */
+    padding: 15px 20px;                /* Espacio interior: 15px arriba y abajo, 20px a los lados */
+    display: flex;                     /* Activa Flexbox para organizar los elementos */
+    flex-direction: column;            /* Organiza los elementos uno debajo del otro */
+    align-items: center;               /* Centra los elementos horizontalmente */
 }
 
 footer {
-    background-color: #4c5a6b;
-    color: white;
-    padding: 1%;
+    background-color: #4c5a6b;        /* Color de fondo del pie de página */
+    color: white;                      /* Color blanco para el texto */
+    padding: 1%;                       /* Añade un espacio interior del 1% */
 }
 
 h2,
 h3 {
-    color: #492d0e;
-    margin-bottom: 15px;
+    color: #492d0e;                    /* Color de los títulos */
+    margin-bottom: 15px;               /* Deja un espacio de 15px debajo de cada título */
 }
 
 h2 {
-    text-align: center;
+    text-align: center;                /* Centra el texto del título */
 }
 
 p {
-    text-align: justify;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    text-align: justify;               /* Alinea el texto de forma justificada */
+    line-height: 1.6;                  /* Aumenta el espacio entre las líneas para facilitar la lectura */
+    margin-bottom: 15px;               /* Deja un espacio de 15px debajo de cada párrafo */
 }
 
 .textcenter {
-    text-align: center;
+    text-align: center;                /* Centra el texto horizontalmente */
 }
 
-/*  Secciones */
+/*  SECCIONES: diseño de los contenedores principales */
 .ejercicio {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 25px;
-    background-color: #dce6ec;
-    border-radius: 15px;
-    color: black;
+    max-width: 1000px;                 /* Evita que el contenedor supere los 1000px de ancho */
+    margin: 30px auto;                 /* Deja 30px arriba y abajo y centra el contenedor horizontalmente */
+    padding: 25px;                     /* Añade 25px de espacio interior en todos los lados */
+    background-color: #dce6ec;        /* Color de fondo del contenedor */
+    border-radius: 15px;               /* Redondea las esquinas del contenedor */
+    color: black;                      /* Establece el color negro para el texto */
 }
 
-/*  Código PSeInt */
+/*  CÓDIGO PSeInt: presentación de los bloques de código */
 pre {
-    background-color: #1e1e1e;
-    color: #f1f1f1;
-    padding: 15px;
-    border-radius: 8px;
-    overflow-x: auto;
-    text-align: left;
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 15px;
+    background-color: #1e1e1e;        /* Color de fondo oscuro del bloque de código */
+    color: #f1f1f1;                    /* Color claro para el texto del código */
+    padding: 15px;                     /* Añade 15px de espacio interior */
+    border-radius: 8px;                /* Redondea las esquinas del bloque */
+    overflow-x: auto;                  /* Permite desplazarse horizontalmente si el código es muy largo */
+    text-align: left;                  /* Alinea el código hacia la izquierda */
+    font-size: 14px;                   /* Establece el tamaño de letra en 14px */
+    line-height: 1.5;                  /* Deja espacio entre las líneas del código */
+    margin-bottom: 15px;               /* Deja un espacio de 15px debajo del bloque */
 }
 
 pre code {
-    font-family: Consolas, "Courier New", monospace;
+    font-family: Consolas, "Courier New", monospace; /* Utiliza una letra de estilo monoespaciado para el código */
 }
 
 pre.resultado {
-    background-color: #fff;
-    color: #222;
-    border: 1px solid #ddd;
-    width: fit-content;
-    margin: 0 auto 15px;
+    background-color: #fff;           /* Coloca un fondo blanco para mostrar el resultado */
+    color: #222;                       /* Establece un color oscuro para el texto */
+    border: 1px solid #ddd;           /* Agrega un borde gris claro de 1px */
+    width: fit-content;                /* Ajusta el ancho al contenido del resultado */
+    margin: 0 auto 15px;               /* Centra el bloque y deja 15px de espacio debajo */
 }
 
 p code {
-    background-color: #fff;
-    padding: 1px 5px;
-    border-radius: 4px;
-    font-family: Consolas, "Courier New", monospace;
+    background-color: #fff;           /* Coloca un fondo blanco detrás del código dentro del párrafo */
+    padding: 1px 5px;                  /* Añade 1px arriba y abajo y 5px a los lados */
+    border-radius: 4px;                /* Redondea las esquinas del fondo */
+    font-family: Consolas, "Courier New", monospace; /* Utiliza una letra monoespaciada para el código */
 }
 
-/* Enlace de descarga */
+/* ENLACE DE DESCARGA: diseño del botón para descargar archivos */
 .descarga {
-    display: inline-block;
-    background-color: #584c8f;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 14px;
+    display: inline-block;             /* Permite aplicar dimensiones y espacios manteniendo el elemento en línea */
+    background-color: #584c8f;        /* Color de fondo del enlace */
+    color: white;                      /* Color blanco para el texto */
+    padding: 8px 14px;                 /* Añade 8px arriba y abajo y 14px a los lados */
+    border-radius: 6px;                /* Redondea las esquinas del enlace */
+    text-decoration: none;             /* Elimina el subrayado del enlace */
+    font-size: 14px;                   /* Establece el tamaño de letra en 14px */
 }
 
 .descarga:hover,
 .descarga:focus {
-    background-color: #43386f;
+    background-color: #43386f;        /* Cambia el color cuando el cursor pasa sobre el enlace o se selecciona con el teclado */
 }
 
-/*  Tablas  */
+.descarga:focus-visible {
+    outline: 3px solid #4c5a6b; /* Muestra un contorno cuando se selecciona el enlace con el teclado */
+    outline-offset: 3px;        /* Separa el contorno del enlace */
+}
+
+/*  TABLAS: diseño y presentación de la información */
 .tabla-decision {
-    border-collapse: collapse;
-    margin: 20px auto;
-    text-align: center;
-    width: 70%;
+    border-collapse: collapse;        /* Une los bordes de las celdas para evitar espacios entre ellos */
+    margin: 20px auto;                 /* Deja 20px arriba y abajo y centra la tabla horizontalmente */
+    text-align: center;                /* Centra el contenido de las celdas */
+    width: 70%;                        /* La tabla ocupa el 70% del ancho disponible */
 }
 
 .tabla-decision caption {
-    font-size: 14px;
-    color: #492d0e;
-    margin-bottom: 8px;
+    font-size: 14px;                   /* Establece el tamaño de letra del título de la tabla */
+    color: #492d0e;                    /* Color del texto del título de la tabla */
+    margin-bottom: 8px;                /* Deja un espacio de 8px debajo del título */
 }
 
 .tabla-decision th,
 .tabla-decision td {
-    border: 1px solid black;
-    padding: 10px;
+    border: 1px solid black;          /* Agrega un borde negro de 1px a las celdas */
+    padding: 10px;                     /* Añade 10px de espacio interior en cada celda */
 }
 
 .tabla-decision th {
-    background-color: #ac9971;
-    color: white;
+    background-color: #ac9971;       /* Color de fondo de los encabezados de la tabla */
+    color: white;                      /* Color blanco para el texto de los encabezados */
 }
 
 .tabla-decision td {
-    background-color: #f1daf1;
+    background-color: #f1daf1;        /* Color de fondo de las celdas de la tabla */
 }
 
-/* Línea impresa de la pirámide (respeta los espacios) */
+/* LÍNEA IMPRESA DE LA PIRÁMIDE: conserva los espacios del texto */
 .salida {
-    white-space: pre;
-    font-family: Consolas, "Courier New", monospace;
+    white-space: pre;                 /* Respeta los espacios y saltos de línea del contenido */
+    font-family: Consolas, "Courier New", monospace; /* Utiliza una letra monoespaciada para alinear los caracteres */
 }
 
-/*  Árbol de componentes */
+/*  ÁRBOL DE COMPONENTES: diseño del contenedor principal */
 .arbol {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    width: 80%;
-    margin: 0 auto;
+    background: white;               /* Establece un fondo blanco */
+    border: 1px solid #ddd;          /* Agrega un borde gris claro de 1px */
+    border-radius: 10px;               /* Redondea las esquinas del contenedor */
+    padding: 20px;                     /* Añade 20px de espacio interior */
+    width: 80%;                        /* El contenedor ocupa el 80% del ancho disponible */
+    max-width: 900px;                  /* Evita que el árbol crezca demasiado en pantallas grandes */
+    margin: 0 auto;                    /* Centra horizontalmente el contenedor */
 }
 
 .tarjeta {
-    padding: 12px;
-    border-radius: 8px;
-    text-align: center;
-    margin-bottom: 10px;
+    padding: 12px;                     /* Añade 12px de espacio interior */
+    border-radius: 8px;                /* Redondea las esquinas de la tarjeta */
+    text-align: center;                /* Centra el contenido de la tarjeta */
+    margin-bottom: 10px;               /* Deja un espacio de 10px debajo de cada tarjeta */
 }
 
 .titulo {
-    font-weight: bold;
-    font-size: 14px;
+    font-weight: bold;                 /* Muestra el texto en negrita */
+    font-size: 14px;                   /* Establece el tamaño de letra en 14px */
 }
 
 .subtitulo {
-    font-size: 12px;
-    color: #666;
+    font-size: 12px;                   /* Establece el tamaño de letra en 12px */
+    color: #666;                       /* Utiliza un color gris para el subtítulo */
 }
 
-/* Tarjeta principal (azul) */
+/* TARJETA PRINCIPAL: identifica el primer elemento del árbol */
 .principal {
-    background-color: #e7f0fe;
-    border: 1px solid #b8d0fc;
+    background-color: #e7f0fe;        /* Color de fondo azul claro */
+    border: 1px solid #b8d0fc;        /* Agrega un borde azul claro de 1px */
 }
 
-/* Cuadrícula para los hijos (2 columnas) */
+/* CUADRÍCULA PARA LOS HIJOS: organiza los elementos en dos columnas */
 .caja-hijos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    display: grid;                     /* Activa CSS Grid para organizar las tarjetas */
+    grid-template-columns: 1fr 1fr;   /* Divide el espacio en dos columnas iguales */
+    gap: 10px;                         /* Deja 10px de espacio entre las tarjetas */
 }
 
-/* Tarjetas verdes */
+/* TARJETAS VERDES: identifican los elementos de esta categoría */
 .verde {
-    background-color: #edf7ed;
-    border: 1px solid #c8e6c9;
+    background-color: #edf7ed;        /* Color de fondo verde claro */
+    border: 1px solid #c8e6c9;        /* Agrega un borde verde claro de 1px */
 }
 
-/* Tarjetas naranjas */
+/* TARJETAS NARANJAS: identifican los elementos de esta categoría */
 .naranja {
-    background-color: #fef8f0;
-    border: 1px solid #ffe0b2;
+    background-color: #fef8f0;        /* Color de fondo naranja muy claro */
+    border: 1px solid #ffe0b2;        /* Agrega un borde naranja claro de 1px */
 }
 
-/* Tarjeta final (resumen de lo que se repite) */
+/* TARJETA FINAL: muestra el resumen de los elementos que se repiten */
 .final {
-    background-color: transparent;
-    border: 2px solid #c8e6c9;
-    margin-top: 10px;
-    margin-bottom: 0;
+    background-color: transparent;    /* Mantiene el fondo transparente */
+    border: 2px solid #c8e6c9;        /* Agrega un borde verde de 2px */
+    margin-top: 10px;                  /* Deja 10px de espacio arriba */
+    margin-bottom: 0;                  /* Elimina el espacio debajo de la tarjeta */
 }
 
-/* Listas de componentes dentro de las tarjetas */
+/* LISTAS DE COMPONENTES: organiza la información dentro de las tarjetas */
 .componentes,
 .componentes ul {
-    text-align: left;
-    font-size: 12px;
-    color: #444;
-    line-height: 1.6;
-    margin: 6px 0 0;
-    padding-left: 18px;
+    text-align: left;                  /* Alinea el contenido de las listas hacia la izquierda */
+    font-size: 12px;                   /* Establece el tamaño de letra en 12px */
+    color: #444;                       /* Utiliza un color gris oscuro para el texto */
+    line-height: 1.6;                  /* Deja espacio entre las líneas para facilitar la lectura */
+    margin: 6px 0 0;                   /* Deja 6px arriba y elimina los márgenes laterales e inferiores */
+    padding-left: 18px;                /* Añade espacio a la izquierda para separar las viñetas del borde */
 }
 
 .componentes ul {
-    margin-top: 2px;
+    margin-top: 2px;                   /* Deja 2px de espacio encima de las listas internas */
 }
 
-/* Parte que se repite */
+/* PARTE QUE SE REPITE: destaca los elementos repetidos */
 .repetido {
-    font-weight: bold;
-    color: #492d0e;
+    font-weight: bold;                 /* Muestra el texto en negrita */
+    color: #492d0e;                  /* Utiliza un color marrón oscuro */
 }
 
 .repetido ul li {
-    font-weight: normal;
-    color: #444;
+    font-weight: normal;               /* Muestra el contenido de las listas sin negrita */
+    color: #444;                     /* Utiliza un color gris oscuro para el texto */
 }
 
 .repetido ul li.repetido {
-    font-weight: bold;
-    color: #492d0e;
+    font-weight: bold;                 /* Resalta nuevamente los elementos que se repiten */
+    color: #492d0e;                  /* Aplica el color marrón oscuro a los elementos destacados */
 }
 
 .insignia {
-    display: inline-block;
-    background-color: #ffe0b2;
-    color: #492d0e;
-    font-size: 11px;
-    font-weight: normal;
-    padding: 0 6px;
-    border-radius: 10px;
-    margin-left: 4px;
+    display: inline-block;              /* Permite aplicar espacios y dimensiones sin ocupar toda la línea */
+    background-color: #ffe0b2;        /* Color de fondo de la insignia */
+    color: #492d0e;                   /* Color del texto de la insignia */
+    font-size: 11px;                    /* Establece el tamaño de letra en 11px */
+    font-weight: normal;                /* Mantiene el texto sin negrita */
+    padding: 0 6px;                     /* Añade 6px de espacio a los lados */
+    border-radius: 10px;                /* Redondea las esquinas para darle forma de insignia */
+    margin-left: 4px;                   /* Deja 4px de espacio a la izquierda */
 }
 
-/* Adaptación para celulares */
+/* ADAPTACIÓN PARA CELULARES */
 @media (max-width: 600px) {
+
     .ejercicio {
-        margin: 15px 10px;
-        padding: 15px;
+        margin: 15px 10px;             /* Reduce los espacios exteriores en pantallas pequeñas */
+        padding: 15px;                  /* Reduce el espacio interior a 15px */
     }
 
     .caja-hijos {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;    /* Organiza las tarjetas en una sola columna */
     }
 
     .arbol {
-        width: auto;
-        padding: 12px;
+        width: auto;                    /* Ajusta el ancho del árbol al espacio disponible */
+        padding: 12px;                  /* Reduce el espacio interior a 12px */
     }
 
     .tabla-decision {
-        width: 100%;
-        font-size: 14px;
-        display: block;
-        overflow-x: auto;
+        width: 100%;                    /* Hace que la tabla ocupe todo el ancho disponible */
+        max-width: 100%; /* Evita que la tabla supere el ancho disponible */
+        font-size: 14px;                 /* Reduce el tamaño de letra para pantallas pequeñas */
+        display: block;                 /* Permite controlar el desbordamiento de la tabla */
+        overflow-x: auto;               /* Permite desplazarse horizontalmente si la tabla es muy ancha */
     }
 
     .tabla-decision th,
     .tabla-decision td {
-        padding: 6px;
+        padding: 6px;                   /* Reduce el espacio interior de las celdas */
     }
 }
